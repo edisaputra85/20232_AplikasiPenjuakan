@@ -1,4 +1,5 @@
 ﻿using Aplikasi_Penjualan.GUI;
+using Aplikasi_Penjualan.Kelas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +25,11 @@ namespace Aplikasi_Penjualan
         private void button_login_Click(object sender, EventArgs e)
         {
             //misalkan login sukses, kirimkan pesan ke Form Parent.
-            if (textBox_username.Text == "admin" && textBox_Pw.Text == "1234")
+            Users user = new Users();
+            
+            if (user.getUser(textBox_username.Text, textBox_Pw.Text))
             {
-                this.mainForm.loginProcess();
+                mainForm.loginProcess();
                 this.Close();
             }
             else

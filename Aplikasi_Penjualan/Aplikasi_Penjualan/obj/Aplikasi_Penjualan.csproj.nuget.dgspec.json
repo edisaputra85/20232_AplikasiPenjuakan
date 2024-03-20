@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kuliah\\Pemrograman Visual\\Latihan\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj": {}
+    "D:\\Kuliah\\Pemrograman Visual\\local_github\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj": {}
   },
   "projects": {
-    "D:\\Kuliah\\Pemrograman Visual\\Latihan\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj": {
+    "D:\\Kuliah\\Pemrograman Visual\\local_github\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kuliah\\Pemrograman Visual\\Latihan\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj",
+        "projectUniqueName": "D:\\Kuliah\\Pemrograman Visual\\local_github\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj",
         "projectName": "Aplikasi_Penjualan",
-        "projectPath": "D:\\Kuliah\\Pemrograman Visual\\Latihan\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj",
+        "projectPath": "D:\\Kuliah\\Pemrograman Visual\\local_github\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\Aplikasi_Penjualan.csproj",
         "packagesPath": "C:\\Users\\Edi Saputra\\.nuget\\packages\\",
-        "outputPath": "D:\\Kuliah\\Pemrograman Visual\\Latihan\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\obj\\",
+        "outputPath": "D:\\Kuliah\\Pemrograman Visual\\local_github\\Aplikasi_Penjualan\\Aplikasi_Penjualan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Edi Saputra\\AppData\\Roaming\\NuGet\\NuGet.Config",
