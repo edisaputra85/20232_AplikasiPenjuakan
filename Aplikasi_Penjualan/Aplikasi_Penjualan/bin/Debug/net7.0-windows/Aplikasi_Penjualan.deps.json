@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Aplikasi_Penjualan/1.0.0": {
+        "runtime": {
+          "Aplikasi_Penjualan.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Aplikasi_Penjualan/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
