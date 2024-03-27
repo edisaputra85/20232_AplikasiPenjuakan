@@ -30,6 +30,8 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
+            textBoxStokBarang = new TextBox();
+            textBoxhargaBarang = new TextBox();
             comboBoxSatuan = new ComboBox();
             label5 = new Label();
             label4 = new Label();
@@ -44,15 +46,13 @@
             buttonBaru = new Button();
             groupBox3 = new GroupBox();
             dgvDataBarang = new DataGridView();
+            textBox1 = new TextBox();
+            label6 = new Label();
             kode_barang = new DataGridViewTextBoxColumn();
             nama_barang = new DataGridViewTextBoxColumn();
             harga_barang = new DataGridViewTextBoxColumn();
             stok = new DataGridViewTextBoxColumn();
             satuan = new DataGridViewTextBoxColumn();
-            textBox1 = new TextBox();
-            label6 = new Label();
-            textBoxhargaBarang = new TextBox();
-            textBoxStokBarang = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -89,6 +89,20 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = ":: From Barang ::";
+            // 
+            // textBoxStokBarang
+            // 
+            textBoxStokBarang.Location = new Point(180, 215);
+            textBoxStokBarang.Name = "textBoxStokBarang";
+            textBoxStokBarang.Size = new Size(309, 34);
+            textBoxStokBarang.TabIndex = 11;
+            // 
+            // textBoxhargaBarang
+            // 
+            textBoxhargaBarang.Location = new Point(180, 162);
+            textBoxhargaBarang.Name = "textBoxhargaBarang";
+            textBoxhargaBarang.Size = new Size(309, 34);
+            textBoxhargaBarang.TabIndex = 10;
             // 
             // comboBoxSatuan
             // 
@@ -233,46 +247,6 @@
             dgvDataBarang.Size = new Size(800, 450);
             dgvDataBarang.TabIndex = 2;
             // 
-            // kode_barang
-            // 
-            kode_barang.HeaderText = "Kode";
-            kode_barang.MinimumWidth = 6;
-            kode_barang.Name = "kode_barang";
-            kode_barang.ReadOnly = true;
-            kode_barang.Width = 125;
-            // 
-            // nama_barang
-            // 
-            nama_barang.HeaderText = "Nama Barang";
-            nama_barang.MinimumWidth = 6;
-            nama_barang.Name = "nama_barang";
-            nama_barang.ReadOnly = true;
-            nama_barang.Width = 250;
-            // 
-            // harga_barang
-            // 
-            harga_barang.HeaderText = "Harga";
-            harga_barang.MinimumWidth = 6;
-            harga_barang.Name = "harga_barang";
-            harga_barang.ReadOnly = true;
-            harga_barang.Width = 125;
-            // 
-            // stok
-            // 
-            stok.HeaderText = "Stok";
-            stok.MinimumWidth = 6;
-            stok.Name = "stok";
-            stok.ReadOnly = true;
-            stok.Width = 125;
-            // 
-            // satuan
-            // 
-            satuan.HeaderText = "Satuan";
-            satuan.MinimumWidth = 6;
-            satuan.Name = "satuan";
-            satuan.ReadOnly = true;
-            satuan.Width = 125;
-            // 
             // textBox1
             // 
             textBox1.Location = new Point(295, 50);
@@ -290,19 +264,50 @@
             label6.TabIndex = 0;
             label6.Text = "Cari Barang (Kode/Nama)";
             // 
-            // textBoxhargaBarang
+            // kode_barang
             // 
-            textBoxhargaBarang.Location = new Point(180, 162);
-            textBoxhargaBarang.Name = "textBoxhargaBarang";
-            textBoxhargaBarang.Size = new Size(309, 34);
-            textBoxhargaBarang.TabIndex = 10;
+            kode_barang.DataPropertyName = "kode";
+            kode_barang.HeaderText = "Kode";
+            kode_barang.MinimumWidth = 6;
+            kode_barang.Name = "kode_barang";
+            kode_barang.ReadOnly = true;
+            kode_barang.Width = 125;
             // 
-            // textBoxStokBarang
+            // nama_barang
             // 
-            textBoxStokBarang.Location = new Point(180, 215);
-            textBoxStokBarang.Name = "textBoxStokBarang";
-            textBoxStokBarang.Size = new Size(309, 34);
-            textBoxStokBarang.TabIndex = 11;
+            nama_barang.DataPropertyName = "nama";
+            nama_barang.HeaderText = "Nama Barang";
+            nama_barang.MinimumWidth = 6;
+            nama_barang.Name = "nama_barang";
+            nama_barang.ReadOnly = true;
+            nama_barang.Width = 250;
+            // 
+            // harga_barang
+            // 
+            harga_barang.DataPropertyName = "harga";
+            harga_barang.HeaderText = "Harga";
+            harga_barang.MinimumWidth = 6;
+            harga_barang.Name = "harga_barang";
+            harga_barang.ReadOnly = true;
+            harga_barang.Width = 125;
+            // 
+            // stok
+            // 
+            stok.DataPropertyName = "stok";
+            stok.HeaderText = "Stok";
+            stok.MinimumWidth = 6;
+            stok.Name = "stok";
+            stok.ReadOnly = true;
+            stok.Width = 125;
+            // 
+            // satuan
+            // 
+            satuan.DataPropertyName = "satuan";
+            satuan.HeaderText = "Satuan";
+            satuan.MinimumWidth = 6;
+            satuan.Name = "satuan";
+            satuan.ReadOnly = true;
+            satuan.Width = 125;
             // 
             // Form_Barang
             // 
@@ -347,12 +352,12 @@
         private DataGridView dgvDataBarang;
         private TextBox textBox1;
         private Label label6;
+        private TextBox textBoxStokBarang;
+        private TextBox textBoxhargaBarang;
         private DataGridViewTextBoxColumn kode_barang;
         private DataGridViewTextBoxColumn nama_barang;
         private DataGridViewTextBoxColumn harga_barang;
         private DataGridViewTextBoxColumn stok;
         private DataGridViewTextBoxColumn satuan;
-        private TextBox textBoxStokBarang;
-        private TextBox textBoxhargaBarang;
     }
 }

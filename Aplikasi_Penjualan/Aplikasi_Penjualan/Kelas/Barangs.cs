@@ -57,5 +57,33 @@ namespace Aplikasi_Penjualan.Kelas
             }
           return result;
         }
+        public static DataTable SelectAll()
+        {
+            DataTable dt = new DataTable();
+            //cara 1
+            MySqlConnection connect = new MySqlConnection(conString);
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM barangs", connect))
+            {
+                try
+                {
+                    connect.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    dt.Load(rdr);
+                    
+                }
+                catch (Exception e)
+                {
+                    String error = e.Message;
+                }
+                finally
+                {
+                    if (connect.State == ConnectionState.Open)
+                    {
+                        connect.Close();
+                    }
+                }
+            }
+            return dt;
+        }
     }
 }

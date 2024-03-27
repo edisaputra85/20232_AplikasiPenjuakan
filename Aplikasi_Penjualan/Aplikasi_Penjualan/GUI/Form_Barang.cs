@@ -1,4 +1,5 @@
 ﻿using Aplikasi_Penjualan.Kelas;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,14 +32,14 @@ namespace Aplikasi_Penjualan.GUI
 
         private void Form_Barang_Load(object sender, EventArgs e)
         {
-
+            loadBarang(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Barangs barang = new Barangs(textBoxKodeBarang.Text, textBoxNamaBarang.Text,
-                Convert.ToInt32(textBoxhargaBarang.Text),Convert.ToInt16(textBoxStokBarang.Text), comboBoxSatuan.Text);
-            if (barang.insert()== 1)
+                Convert.ToInt32(textBoxhargaBarang.Text), Convert.ToInt16(textBoxStokBarang.Text), comboBoxSatuan.Text);
+            if (barang.insert() == 1)
             {
                 MessageBox.Show("Insert barang sukses");
             }
@@ -46,6 +47,7 @@ namespace Aplikasi_Penjualan.GUI
             {
                 MessageBox.Show("Insert barang gagal");
             }
+            loadBarang();
         }
 
         private void buttonBaru_Click(object sender, EventArgs e)
@@ -67,6 +69,15 @@ namespace Aplikasi_Penjualan.GUI
             comboBoxSatuan.Text = string.Empty;
 
             buttonSimpan.Enabled = true;
+        }
+
+        private void loadBarang()
+        {
+            DataTable dt = new DataTable();
+            dt = Barangs.SelectAll();
+            dgvDataBarang.AutoGenerateColumns = false;
+            dgvDataBarang.DataSource = dt;
+            dgvDataBarang.Show();
         }
     }
 }
