@@ -45,6 +45,7 @@
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
+            subMenuDataBarang = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             toolStrip.SuspendLayout();
             statusStrip.SuspendLayout();
@@ -71,31 +72,32 @@
             // submenu_login
             // 
             submenu_login.Name = "submenu_login";
-            submenu_login.Size = new Size(224, 26);
+            submenu_login.Size = new Size(139, 26);
             submenu_login.Text = "&Login";
             submenu_login.Click += submenu_login_Click;
             // 
             // submenu_logout
             // 
             submenu_logout.Name = "submenu_logout";
-            submenu_logout.Size = new Size(224, 26);
+            submenu_logout.Size = new Size(139, 26);
             submenu_logout.Text = "&Logout";
             submenu_logout.Click += submenu_logout_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(221, 6);
+            toolStripMenuItem1.Size = new Size(136, 6);
             // 
             // submenu_keluar
             // 
             submenu_keluar.Name = "submenu_keluar";
-            submenu_keluar.Size = new Size(224, 26);
+            submenu_keluar.Size = new Size(139, 26);
             submenu_keluar.Text = "&Keluar";
             submenu_keluar.Click += submenu_keluar_Click;
             // 
             // menu_masterdata
             // 
+            menu_masterdata.DropDownItems.AddRange(new ToolStripItem[] { subMenuDataBarang });
             menu_masterdata.Enabled = false;
             menu_masterdata.Name = "menu_masterdata";
             menu_masterdata.Size = new Size(104, 24);
@@ -156,6 +158,13 @@
             toolStripStatusLabel.Size = new Size(49, 20);
             toolStripStatusLabel.Text = "Status";
             // 
+            // subMenuDataBarang
+            // 
+            subMenuDataBarang.Name = "subMenuDataBarang";
+            subMenuDataBarang.Size = new Size(224, 26);
+            subMenuDataBarang.Text = "Data Barang";
+            subMenuDataBarang.Click += subMenuDataBarang_Click;
+            // 
             // Menu_Utama
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -170,6 +179,7 @@
             MainMenuStrip = menuStrip;
             Margin = new Padding(5);
             Name = "Menu_Utama";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu_Utama";
             WindowState = FormWindowState.Maximized;
             Load += Menu_Utama_Load;
@@ -200,6 +210,7 @@
         private ToolStripSeparator toolStripMenuItem1;
         public ToolStripMenuItem submenu_keluar;
         public ToolStripButton toolbar_barang;
+        public ToolStripMenuItem subMenuDataBarang;
     }
 }
 

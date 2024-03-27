@@ -14,10 +14,27 @@ namespace Aplikasi_Penjualan.GUI
     {
         private int childFormNumber = 0;
         Form_Login frmLogin;
+
+        protected override void OnResize(EventArgs e)
+        {
+            CenterForms();
+            base.OnResize(e);
+        }
+        private void CenterForms()
+        {
+            foreach (var form in MdiChildren) //This will center all of the Child Forms
+            {
+                form.Left = (ClientRectangle.Width - form.Width) / 2;
+                form.Top = (ClientRectangle.Height - form.Height) / 2;
+            }
+
+        }
+        
         void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmLogin = null;
         }
+        
 
         bool _loginState;
 
@@ -32,9 +49,28 @@ namespace Aplikasi_Penjualan.GUI
         {
             menu_masterdata.Enabled = true;
         }
-        
+
         private void submenu_login_Click(object sender, EventArgs e)
         {
+            //menampilkan form login
+            if (frmLogin == null)
+            {
+                //1. membuat objek dari form login
+                frmLogin = new Form_Login(this);
+                //2. mengkaitkan objek form login dengan MDI parent
+                frmLogin.MdiParent = this;
+                frmLogin.FormClosed += new FormClosedEventHandler(frmLogin_FormClosed);
+                //3. menampilkan form login
+                frmLogin.Show();
+            }
+            else
+            {
+                frmLogin.Activate();
+            }
+            
+            
+            
+            /*
             if (frmLogin == null)
             {
                 frmLogin = new Form_Login(this);
@@ -46,6 +82,7 @@ namespace Aplikasi_Penjualan.GUI
             {
                 frmLogin.Activate();
             }
+            */
         }
 
         private void Menu_Utama_Load(object sender, EventArgs e)
@@ -72,9 +109,11 @@ namespace Aplikasi_Penjualan.GUI
         }
         public void loginProcess()
         {
-            _loginState = true;
+            //_loginState = true;
             toolStripStatusLabel.Text = "Login";
             menu_masterdata.Enabled = true;
+            menu_pengaturan.Enabled = true;
+            menu_transaksi.Enabled = true;
             submenu_logout.Enabled = true;
             submenu_login.Enabled = false;
         }
@@ -86,7 +125,12 @@ namespace Aplikasi_Penjualan.GUI
             {
                 this.Close();
 
-            } 
+            }
+        }
+
+        private void subMenuDataBarang_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

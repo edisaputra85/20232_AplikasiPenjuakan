@@ -38,3 +38,4 @@ D:\Kuliah\Pemrograman Visual\local_github\Aplikasi_Penjualan\Aplikasi_Penjualan\
 D:\Kuliah\Pemrograman Visual\local_github\Aplikasi_Penjualan\Aplikasi_Penjualan\bin\Debug\net7.0-windows\MySql.Data.dll
 D:\Kuliah\Pemrograman Visual\local_github\Aplikasi_Penjualan\Aplikasi_Penjualan\bin\Debug\net7.0-windows\MySql.Data.xml
 D:\Kuliah\Pemrograman Visual\local_github\Aplikasi_Penjualan\Aplikasi_Penjualan\obj\Debug\net7.0-windows\Aplikasi_Penjualan.csproj.CopyComplete
+D:\Kuliah\Pemrograman Visual\local_github\Aplikasi_Penjualan\Aplikasi_Penjualan\obj\Debug\net7.0-windows\Aplikasi_Penjualan.GUI.Form_Barang.resources

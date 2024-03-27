@@ -104,9 +104,13 @@
             Controls.Add(textBox_username);
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Form_Login";
             StartPosition = FormStartPosition.CenterParent;
             Text = ":: LOGIN ::";
+            Load += Form_Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }
