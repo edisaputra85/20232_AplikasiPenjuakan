@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Aplikasi_Penjualan.GUI
+﻿namespace Aplikasi_Penjualan.GUI
 {
     public partial class Menu_Utama : Form
     {
         private int childFormNumber = 0;
         Form_Login frmLogin;
+        Form_Barang frmBarang;
 
         protected override void OnResize(EventArgs e)
         {
@@ -27,14 +18,16 @@ namespace Aplikasi_Penjualan.GUI
                 form.Left = (ClientRectangle.Width - form.Width) / 2;
                 form.Top = (ClientRectangle.Height - form.Height) / 2;
             }
-
         }
         
         void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmLogin = null;
         }
-        
+        void frmBarang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmBarang = null;
+        }
 
         bool _loginState;
 
@@ -67,27 +60,6 @@ namespace Aplikasi_Penjualan.GUI
             {
                 frmLogin.Activate();
             }
-            
-            
-            
-            /*
-            if (frmLogin == null)
-            {
-                frmLogin = new Form_Login(this);
-                frmLogin.MdiParent = this;
-                frmLogin.FormClosed += new FormClosedEventHandler(frmLogin_FormClosed);
-                frmLogin.Show();
-            }
-            else
-            {
-                frmLogin.Activate();
-            }
-            */
-        }
-
-        private void Menu_Utama_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void submenu_logout_Click(object sender, EventArgs e)
@@ -117,7 +89,6 @@ namespace Aplikasi_Penjualan.GUI
             submenu_logout.Enabled = true;
             submenu_login.Enabled = false;
         }
-
         private void submenu_keluar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Anda yakin ingin keluar dari aplikasi?", "Konfirmasi Logout", MessageBoxButtons.YesNo);
@@ -130,7 +101,21 @@ namespace Aplikasi_Penjualan.GUI
 
         private void subMenuDataBarang_Click(object sender, EventArgs e)
         {
-
+            //menampilkan form barang
+            if (frmBarang == null)
+            {
+                //1. membuat objek dari form barang
+                frmBarang = new Form_Barang();
+                //2. mengkaitkan objek form barang dengan MDI parent
+                frmBarang.MdiParent = this;
+                frmBarang.FormClosed += new FormClosedEventHandler(frmBarang_FormClosed);
+                //3. menampilkan form login
+                frmBarang.Show();
+            }
+            else
+            {
+                frmBarang.Activate();
+            }
         }
     }
 }

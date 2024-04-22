@@ -29,47 +29,21 @@ namespace Aplikasi_Penjualan
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            
-            //lakukan query select ke database.....
+            //1. mengecek apakah username dan password benar
+            //jika benar, tampil pesan login berhasil, aktifkan menu dan tutup form login
             Users user = new Users();
-            if (user.getUser(textBox_username.Text,textBox_Pw.Text))
+            if (user.getUser(textBox_username.Text,textBox_Pw.Text)) 
             {
-                //jika akun ditemukan, maka lanjutkan proses login
-                mainForm.loginProcess();
-                this.Close();
-            }
-            else
-            {
-                //jika akun tidak ditemukan , tampilkan pesan login gagal
-                MessageBox.Show("login gagal");
-            }
-
-            /*
-            if (textBox_username.Text=="admin" && textBox_Pw.Text="1234")
-            {
+                MessageBox.Show("Login berhasil");
                 mainForm.loginProcess();
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Login gagal");
+                textBox_username.Text = string.Empty;
+                textBox_Pw.Text = string.Empty; 
             }
-            */
-
-            /*Baca dari db
-            //misalkan login sukses, kirimkan pesan ke Form Parent.
-            Users user = new Users();
-
-            if (user.getUser(textBox_username.Text, textBox_Pw.Text))
-            {
-                mainForm.loginProcess();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Login gagal");
-            }
-            */
 
         }
 

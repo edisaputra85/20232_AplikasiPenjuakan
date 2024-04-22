@@ -85,5 +85,34 @@ namespace Aplikasi_Penjualan.Kelas
             }
             return dt;
         }
+
+        public static DataTable search(String txtSearch)
+        {
+            DataTable dt = new DataTable();
+            //cara 1
+            MySqlConnection connect = new MySqlConnection(conString);
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM barangs WHERE kode ='"+txtSearch +"' OR nama = '"+txtSearch+"' ", connect))
+            {
+                try
+                {
+                    connect.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    dt.Load(rdr);
+
+                }
+                catch (Exception e)
+                {
+                    String error = e.Message;
+                }
+                finally
+                {
+                    if (connect.State == ConnectionState.Open)
+                    {
+                        connect.Close();
+                    }
+                }
+            }
+            return dt;
+        }
     }
 }

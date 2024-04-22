@@ -32,7 +32,7 @@ namespace Aplikasi_Penjualan.GUI
 
         private void Form_Barang_Load(object sender, EventArgs e)
         {
-            loadBarang(); 
+            loadBarang();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,6 +78,26 @@ namespace Aplikasi_Penjualan.GUI
             dgvDataBarang.AutoGenerateColumns = false;
             dgvDataBarang.DataSource = dt;
             dgvDataBarang.Show();
+        }
+
+        private void searchBarang()
+        {
+            DataTable dt = new DataTable();
+            dt = Barangs.search(textBoxSearch.Text);
+            dgvDataBarang.AutoGenerateColumns = false;
+            dgvDataBarang.DataSource = dt;
+            dgvDataBarang.Show();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonCari_Click(object sender, EventArgs e)
+        {
+            searchBarang();
         }
     }
 }

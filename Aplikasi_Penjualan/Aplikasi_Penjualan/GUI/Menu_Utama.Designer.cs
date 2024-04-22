@@ -182,7 +182,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu_Utama";
             WindowState = FormWindowState.Maximized;
-            Load += Menu_Utama_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStrip.ResumeLayout(false);
