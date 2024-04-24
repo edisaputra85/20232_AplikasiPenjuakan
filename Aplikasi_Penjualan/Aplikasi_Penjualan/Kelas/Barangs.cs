@@ -11,7 +11,120 @@ namespace Aplikasi_Penjualan.Kelas
 {
     internal class Barangs
     {
+        string kode;
+        string nama;
+        int harga;
+        int stok;
+        string satuan;
         protected const String conString = "server=localhost;database=db_penjualan_app;uid=root;pwd=;";
+        public Barangs()
+        {
+
+        }
+
+        public Barangs(string kode, string nama, int harga, int stok, string satuan)
+        {
+            this.kode = kode;
+            this.nama = nama;
+            this.harga = harga;
+            this.stok = stok;
+            this.satuan = satuan;
+        }
+
+        public int insert()
+        {
+            int result = 0;
+            MySqlConnection connect = new MySqlConnection(conString);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO barangs (kode,nama,harga,stok,satuan) VALUES(@kode,@nama,@harga,@stok,@satuan)");
+            cmd.Parameters.AddWithValue("@kode", kode);
+            cmd.Parameters.AddWithValue("@nama", nama);
+            cmd.Parameters.AddWithValue("@harga", harga);
+            cmd.Parameters.AddWithValue("@stok", stok);
+            cmd.Parameters.AddWithValue("@satuan", satuan);
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = connect;
+            try
+            {
+                connect.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connect.State == ConnectionState.Open)
+                {
+                    connect.Close();
+                }
+            }
+            return result;
+        }
+
+        public static DataTable SelectAll()
+        {
+            DataTable dt = new DataTable();
+            //cara 1
+            MySqlConnection connect = new MySqlConnection(conString);
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM barangs", connect))
+            {
+                try
+                {
+                    connect.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    dt.Load(rdr);
+
+                }
+                catch (Exception e)
+                {
+                    String error = e.Message;
+                }
+                finally
+                {
+                    if (connect.State == ConnectionState.Open)
+                    {
+                        connect.Close();
+                    }
+                }
+            }
+            return dt;
+        }
+
+        public static DataTable search(String txtSearch)
+        {
+            DataTable dt = new DataTable();
+            //cara 1
+            MySqlConnection connect = new MySqlConnection(conString);
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM barangs WHERE kode ='" + txtSearch + "' OR nama = '" + txtSearch + "' ", connect))
+            {
+                try
+                {
+                    connect.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    dt.Load(rdr);
+
+                }
+                catch (Exception e)
+                {
+                    String error = e.Message;
+                }
+                finally
+                {
+                    if (connect.State == ConnectionState.Open)
+                    {
+                        connect.Close();
+                    }
+                }
+            }
+            return dt;
+        }
+
+    }
+}
+
+/*
+ protected const String conString = "server=localhost;database=db_penjualan_app;uid=root;pwd=;";
         string kode;
         string nama;
         int harga;
@@ -114,5 +227,4 @@ namespace Aplikasi_Penjualan.Kelas
             }
             return dt;
         }
-    }
-}
+ * */

@@ -14,6 +14,7 @@ namespace Aplikasi_Penjualan.GUI
 {
     public partial class Form_Barang : Form
     {
+        String selectedKode;
         public Form_Barang()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace Aplikasi_Penjualan.GUI
         {
             Barangs barang = new Barangs(textBoxKodeBarang.Text, textBoxNamaBarang.Text,
                 Convert.ToInt32(textBoxhargaBarang.Text), Convert.ToInt16(textBoxStokBarang.Text), comboBoxSatuan.Text);
+           
             if (barang.insert() == 1)
             {
                 MessageBox.Show("Insert barang sukses");
@@ -47,7 +49,11 @@ namespace Aplikasi_Penjualan.GUI
             {
                 MessageBox.Show("Insert barang gagal");
             }
+            //method untuk membaca dan menampilkan semua data ke datagridview
             loadBarang();
+            
+
+
         }
 
         private void buttonBaru_Click(object sender, EventArgs e)
@@ -98,6 +104,29 @@ namespace Aplikasi_Penjualan.GUI
         private void buttonCari_Click(object sender, EventArgs e)
         {
             searchBarang();
+        }
+
+        private void dgvDataBarang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDataBarang.Rows[e.RowIndex].Cells[0].Value != null)
+            {
+                textBoxKodeBarang.Text = dgvDataBarang.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBoxNamaBarang.Text = dgvDataBarang.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBoxhargaBarang.Text = dgvDataBarang.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBoxStokBarang.Text = dgvDataBarang.Rows[e.RowIndex].Cells[3].Value.ToString();
+                comboBoxSatuan.Text = dgvDataBarang.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+
+            }
+        }
+
+        private void buttonUbah_Click(object sender, EventArgs e)
+        {
+            textBoxNamaBarang.Enabled = true;
+            textBoxhargaBarang.Enabled = true;
+            textBoxStokBarang.Enabled = true;
+            comboBoxSatuan.Enabled = true;
+            buttonSimpan.Enabled = true;
         }
     }
 }
